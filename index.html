@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daiane Menezes | Data Science, UX & Governança de Dados</title>
+    <!-- Fonts: Inter & Fira Code -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    },
+                    colors: {
+                        emerald: {
+                            400: '#34d399',
+                            500: '#10b981',
+                            600: '#059669',
+                            950: '#022c22',
+                        },
+                        slate: {
+                            850: '#111827',
+                            900: '#0f172a',
+                            950: '#020617',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar and ambient grid pattern */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #090d16;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #334155;
+        }
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-300 font-sans antialiased selection:bg-emerald-500/30 selection:text-emerald-300 min-h-screen flex flex-col justify-between">
+
+    <!-- Ambient Grid & Blur Effect -->
+    <div class="fixed inset-0 bg-grid-pattern pointer-events-none z-0"></div>
+    <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-emerald-500/5 blur-[120px] pointer-events-none z-0"></div>
+
+    <!-- 1. Header Navigation -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-slate-950/80 border-b border-slate-800/60">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="#" class="font-bold text-lg tracking-tight text-slate-100 hover:text-emerald-400 transition-colors flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 inline-block animate-pulse"></span>
+                Daiane Menezes
+            </a>
+            
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
+                <a href="#sobre" class="hover:text-emerald-400 transition-colors">Sobre</a>
+                <a href="#valor" class="hover:text-emerald-400 transition-colors">Como Gero Valor</a>
+                <a href="#competencias" class="hover:text-emerald-400 transition-colors">Competências</a>
+                <a href="#projetos" class="hover:text-emerald-400 transition-colors">Projetos</a>
+                <a href="#formacao" class="hover:text-emerald-400 transition-colors">Formação</a>
+                <a href="#contato" class="px-4 py-1.5 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/30 hover:bg-emerald-500/20 transition-all">Contato</a>
+            </nav>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-400 hover:text-slate-100 focus:outline-none" aria-label="Abrir Menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden border-b border-slate-800 bg-slate-900/95 px-4 pt-2 pb-4 space-y-3 text-sm">
+            <a href="#sobre" class="block text-slate-300 hover:text-emerald-400">Sobre</a>
+            <a href="#valor" class="block text-slate-300 hover:text-emerald-400">Como Gero Valor</a>
+            <a href="#competencias" class="block text-slate-300 hover:text-emerald-400">Competências</a>
+            <a href="#projetos" class="block text-slate-300 hover:text-emerald-400">Projetos</a>
+            <a href="#formacao" class="block text-slate-300 hover:text-emerald-400">Formação</a>
+            <a href="#contato" class="block text-emerald-400 font-semibold">Contato</a>
+        </div>
+    </header>
+
+    <!-- Main Content Wrapper -->
+    <main class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24 py-12">
+
+        <!-- 2. Hero Section -->
+        <section class="pt-6 sm:pt-12 space-y-10">
+            <div class="max-w-3xl space-y-6">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950/60 border border-emerald-800/50 text-emerald-300 text-xs font-mono uppercase tracking-wider">
+                    <span>Data Science</span> • <span>UX</span> • <span>Governança & LGPD</span>
+                </div>
+                <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-100 tracking-tight leading-tight sm:leading-tight">
+                    Transformando dados em <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">governança, segurança e decisões</span>.
+                </h1>
+                <p class="text-lg text-slate-400 leading-relaxed">
+                    Analista de Dados & Experiência baseada em Salvador-BA. Uno Ciência de Dados, UX e Governança/LGPD para estruturar soluções de dados maduras, confiáveis e centradas nas pessoas.
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-wrap gap-4 pt-2">
+                    <a href="#projetos" class="px-6 py-3 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-semibold transition-all shadow-lg shadow-emerald-500/20 flex items-center gap-2">
+                        Ver projetos 
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                    <a href="https://linkedin.com/in/daianemenezesdatascience" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 font-medium transition-all flex items-center gap-2">
+                        <svg class="w-4 h-4 fill-current text-slate-400" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+                        LinkedIn
+                    </a>
+                    <a href="https://github.com/daianedatascience" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 font-medium transition-all flex items-center gap-2">
+                        <svg class="w-4 h-4 fill-current text-slate-400" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                        GitHub
+                    </a>
+                </div>
+            </div>
+
+            <!-- Workflow 3-Step Grid -->
+            <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8 backdrop-blur-sm shadow-xl">
+                <h3 class="text-xs font-mono uppercase tracking-wider text-emerald-400 mb-6 flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    Visão Integrada do Fluxo de Trabalho
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Bloco 1 -->
+                    <div class="space-y-3 p-4 rounded-xl bg-slate-950/60 border border-slate-800/80 hover:border-emerald-500/40 transition-colors">
+                        <div class="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 font-mono font-bold text-sm flex items-center justify-center">01</div>
+                        <h4 class="font-semibold text-slate-100">Dados & Saúde Pública</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Mapeamento de processos, LGPD e análise de requisitos de segurança digital aplicados à rede pública de saúde (SUS).
+                        </p>
+                    </div>
+
+                    <!-- Bloco 2 -->
+                    <div class="space-y-3 p-4 rounded-xl bg-slate-950/60 border border-slate-800/80 hover:border-emerald-500/40 transition-colors">
+                        <div class="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 font-mono font-bold text-sm flex items-center justify-center">02</div>
+                        <h4 class="font-semibold text-slate-100">Python & Governança</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Processamento de dados, testes automatizados e modelagem de matrizes de maturidade e risco (Framework FMRS-SUS).
+                        </p>
+                    </div>
+
+                    <!-- Bloco 3 -->
+                    <div class="space-y-3 p-4 rounded-xl bg-slate-950/60 border border-slate-800/80 hover:border-emerald-500/40 transition-colors">
+                        <div class="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 font-mono font-bold text-sm flex items-center justify-center">03</div>
+                        <h4 class="font-semibold text-slate-100">Looker Studio & Decisão</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Painéis executivos como o Semáforo SUS, com priorização clara de gargalos de conformidade e riscos sem médias genéricas.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Sobre Section -->
+        <section id="sobre" class="space-y-6 pt-6">
+            <h2 class="text-xs font-mono uppercase tracking-widest text-emerald-400 flex items-center gap-2">
+                <span class="w-4 h-[1px] bg-emerald-400"></span> Sobre Mim
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+                <div class="md:col-span-2 space-y-4 text-slate-300 text-base leading-relaxed">
+                    <p>
+                        Sou Analista de Dados & Experiência baseada em Salvador-BA, atuando na convergência entre **Ciência de Dados**, **User Experience (UX)** e **Governança da Informação**. Minha prática une o rigor da análise quantitativa ao olhar centrado nas necessidades humanas e organizacionais.
+                    </p>
+                    <p>
+                        Concluí o **MBA em Data Science e Analytics pela USP/ESALQ** e participei da 2ª turma da **Escola de Governança de Dados (EGD) da Data Privacy Brasil** em São Paulo. Minha atuação foca em transformar exigências regulatórias e de segurança em ferramentas práticas e objetivas de gestão.
+                    </p>
+                    <p>
+                        No meu TCC, desenvolvi o **FMRS-SUS** (Framework de Maturidade e Risco em Segurança Digital no SUS), tomando como referência o *Health Data Hub* francês para analisar a maturidade digital em hospitais públicos baianos. Dessa trajetória nasceu o **Semáforo SUS 🚦**, um instrumento de priorização construído em Python e Looker Studio para tomada de decisão em privacidade e segurança.
+                    </p>
+                </div>
+
+                <!-- Highlight Sidebar Box -->
+                <div class="bg-slate-900/40 border border-slate-800 p-5 rounded-xl space-y-4">
+                    <h3 class="text-sm font-semibold text-slate-200 font-mono uppercase tracking-wider">Diretrizes de Atuação</h3>
+                    <ul class="text-xs text-slate-400 space-y-2.5">
+                        <li class="flex items-start gap-2">
+                            <span class="text-emerald-400">✓</span>
+                            <span>Segurança e privacidade sustentam a continuidade do cuidado à saúde.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-emerald-400">✓</span>
+                            <span>Critérios explícitos e sem médias mascaradas para priorizar o recurso certo.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-emerald-400">✓</span>
+                            <span>Privacy by Design e dados simulados como postura ética de projeto.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. "Como Gero Valor com Dados" Section -->
+        <section id="valor" class="space-y-8 pt-6">
+            <div>
+                <h2 class="text-xs font-mono uppercase tracking-widest text-emerald-400 mb-2 flex items-center gap-2">
+                    <span class="w-4 h-[1px] bg-emerald-400"></span> Atuação Prática
+                </h2>
+                <h3 class="text-2xl font-bold text-slate-100">Como gero valor com dados</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-slate-900/40 border border-slate-800 hover:border-slate-700 p-6 rounded-xl space-y-4 transition-all">
+                    <div class="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    </div>
+                    <h4 class="text-lg font-semibold text-slate-100">Governança & Privacy by Design</h4>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Mapeamento de fluxos de dados sensíveis, diagnóstico de riscos sob a LGPD e RNDS e estruturação de políticas de retenção e conformidade sem travar os fluxos operacionais.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-slate-900/40 border border-slate-800 hover:border-slate-700 p-6 rounded-xl space-y-4 transition-all">
+                    <div class="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <h4 class="text-lg font-semibold text-slate-100">Data Analytics & Experiência</h4>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Desenvolvimento de dashboards interativos no Looker Studio e Power BI, utilizando UX Analytics para responder às perguntas reais de gestores e equipes operacionais.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-slate-900/40 border border-slate-800 hover:border-slate-700 p-6 rounded-xl space-y-4 transition-all">
+                    <div class="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                    </div>
+                    <h4 class="text-lg font-semibold text-slate-100">Engenharia & Automação</h4>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Construção de pipelines em Python, consultas SQL estruturadas e aplicação de suítes de testes unitários automatizados (pytest) para auditabilidade das regras de negócio.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Competências Técnicas Section -->
+        <section id="competencias" class="space-y-6 pt-6">
+            <h2 class="text-xs font-mono uppercase tracking-widest text-emerald-400 flex items-center gap-2">
+                <span class="w-4 h-[1px] bg-emerald-400"></span> Habilidades & Ferramentas
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Group 1 -->
+                <div class="bg-slate-900/40 border border-slate-800 p-5 rounded-xl space-y-3">
+                    <h3 class="text-sm font-semibold text-slate-200 font-mono">Linguagens & Análise de Dados</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2.5 py-1 rounded bg-slate-950 border border-slate-800 text-xs font-mono text-slate-300">Python</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-950 border border-slate-800 text-xs font-mono text-slate-300">Pandas</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-950 border border-slate-800 text-xs font-mono text-slate-300">NumPy</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-950 border border-slate-800 text-xs font-mono text-slate-300">Pytest</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-950 border border-slate-800 text-xs font-mono text-slate-300">SQL</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-950 border border-slate-800 text-xs font-mono text-slate-300">Análise Exploratória (EDA)</span>
+                    </div>
+                </div>
+
+                <!-- Group 2 -->
+                <div class="bg-slate-900/40 border border-slate-800 p-5 rounded-xl space-y-3">
+                    <h3 class="text-sm font-semibold text-slate-200 font-mono">Visualização & BI</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2.5 py-1 rounded bg-slate-950 border border-slate-800 text-xs font-mono text-slate-300">Looker Studio</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-950 border border-slate-800 text-xs font-mono text-slate-300">Power BI</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-950 border border-slate-800 text-xs font-mono text-slate-300">DAX</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-950 border border-slate-800 text-xs font-mono text-slate-300">UX Research / Analytics</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-950 border border-slate-800 text-xs font-mono text-slate-300">Storytelling com Dados</span>
+                    </div>
+                </div>
+
+                <!-- Group 3 -->
+                <div class="bg-slate-900/40 border border-slate-800 p-5 rounded-xl space-y-3">
+                    <h3 class="text-sm font-semibold text-slate-200 font-mono">Governança & Privacidade</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2.5 py-1 rounded bg-slate-950 border border-slate-800 text-xs font-mono text-slate-300">LGPD</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-950 border border-slate-800 text-xs font-mono text-slate-300">Privacy by Design</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-950 border border-slate-800 text-xs font-mono text-slate-300">FMRS-SUS</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-950 border border-slate-800 text-xs font-mono text-slate-300">NIST CSF</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-950 border border-slate-800 text-xs font-mono text-slate-300">Health Data Hub / RNDS</span>
+                    </div>
+                </div>
+
+                <!-- Group 4 -->
+                <div class="bg-slate-900/40 border border-slate-800 p-5 rounded-xl space-y-3">
+                    <h3 class="text-sm font-semibold text-slate-200 font-mono">Qualidade & Engenharia</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2.5 py-1 rounded bg-slate-950 border border-slate-800 text-xs font-mono text-slate-300">Git & GitHub</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-950 border border-slate-800 text-xs font-mono text-slate-300">Testes Automatizados</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-950 border border-slate-800 text-xs font-mono text-slate-300">Modelagem de Dados</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-950 border border-slate-800 text-xs font-mono text-slate-300">Anonimização de Dados</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Projetos em Destaque Section -->
+        <section id="projetos" class="space-y-8 pt-6">
+            <div>
+                <h2 class="text-xs font-mono uppercase tracking-widest text-emerald-400 mb-2 flex items-center gap-2">
+                    <span class="w-4 h-[1px] bg-emerald-400"></span> Portfólio
+                </h2>
+                <h3 class="text-2xl font-bold text-slate-100">Projetos em Destaque</h3>
+            </div>
+
+            <div class="space-y-8">
+                <!-- Project 1: Semáforo SUS -->
+                <article class="bg-slate-900/60 border border-slate-800 hover:border-slate-700 rounded-2xl p-6 sm:p-8 space-y-6 transition-all group">
+                    <div class="flex flex-wrap items-center justify-between gap-4">
+                        <div class="flex flex-wrap items-center gap-2 text-xs font-mono text-emerald-400">
+                            <span>Data Governance</span> • <span>Public Health</span> • <span>Looker Studio</span> • <span>Python</span>
+                        </div>
+                        <span class="px-2.5 py-0.5 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-800 text-xs font-medium">Projeto Destaque</span>
+                    </div>
+
+                    <div class="space-y-3">
+                        <h4 class="text-xl sm:text-2xl font-bold text-slate-100 group-hover:text-emerald-300 transition-colors flex items-center gap-3">
+                            Semáforo SUS 🚦 — Priorização em Governança de Saúde
+                        </h4>
+                        <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+                            Instrumento prático que avalia unidades públicas de saúde em 4 dimensões essenciais: Controle de Acesso, LGPD, Compartilhamento de Dados e Backup. 
+                        </p>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Em vez de uma média aritmética que oculta riscos graves atrás de bons desempenhos, o Semáforo estabelece que Acesso e Backup são dimensões críticas. A falha em qualquer uma caracteriza automaticamente situação de atenção/prioridade crítica.
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-950/80 p-4 rounded-xl border border-slate-800/80 text-xs text-slate-400 space-y-2 font-mono">
+                        <p class="text-slate-200 font-semibold">💡 Destaques Metodológicos:</p>
+                        <p>• Resposta prática ao gestor: identifica exatamente por qual vulnerabilidade começar.</p>
+                        <p>• Validação automatizada: regras implementadas em Python e testadas com pytest.</p>
+                        <p>• Governança aplicada: usa dados simulados respeitando os princípios de Privacy by Design.</p>
+                    </div>
+
+                    <div class="flex flex-wrap items-center justify-between gap-4 pt-2">
+                        <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-400">
+                            <span class="bg-slate-800 px-2.5 py-1 rounded">Python</span>
+                            <span class="bg-slate-800 px-2.5 py-1 rounded">Pytest</span>
+                            <span class="bg-slate-800 px-2.5 py-1 rounded">Looker Studio</span>
+                            <span class="bg-slate-800 px-2.5 py-1 rounded">LGPD</span>
+                        </div>
+
+                        <div class="flex items-center gap-4 text-sm font-medium">
+                            <a href="https://github.com/daianedatascience" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:text-emerald-400 transition-colors flex items-center gap-1.5">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                                GitHub
+                            </a>
+                            <a href="#" onclick="alert('Adicione o link público do seu Looker Studio neste botão!'); return false;" class="text-emerald-400 hover:text-emerald-300 transition-colors flex items-center gap-1.5">
+                                Painel no Looker Studio
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 2: FMRS-SUS -->
+                <article class="bg-slate-900/60 border border-slate-800 hover:border-slate-700 rounded-2xl p-6 sm:p-8 space-y-6 transition-all group">
+                    <div class="flex flex-wrap items-center justify-between gap-4">
+                        <div class="flex flex-wrap items-center gap-2 text-xs font-mono text-emerald-400">
+                            <span>Data Science</span> • <span>Security Maturity</span> • <span>TCC MBA USP</span>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3">
+                        <h4 class="text-xl sm:text-2xl font-bold text-slate-100 group-hover:text-emerald-300 transition-colors">
+                            FMRS-SUS 🏥 — Framework de Maturidade e Risco em Segurança Digital
+                        </h4>
+                        <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+                            Pesquisa aplicada desenvolvida no MBA em Data Science da USP/ESALQ para avaliar a maturidade em segurança digital no SUS em dois hospitais públicos baianos.
+                        </p>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Utilizou como modelo o *Health Data Hub* francês para estruturar diagnósticos sobre governança de dados, infraestrutura de segurança e soberania digital em convergência com a LGPD e a RNDS.
+                        </p>
+                    </div>
+
+                    <div class="flex flex-wrap items-center justify-between gap-4 pt-2">
+                        <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-400">
+                            <span class="bg-slate-800 px-2.5 py-1 rounded">Security Framework</span>
+                            <span class="bg-slate-800 px-2.5 py-1 rounded">Health Data Hub</span>
+                            <span class="bg-slate-800 px-2.5 py-1 rounded">RNDS</span>
+                            <span class="bg-slate-800 px-2.5 py-1 rounded">Python</span>
+                        </div>
+
+                        <div class="flex items-center gap-4 text-sm font-medium">
+                            <a href="https://github.com/daianedatascience" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:text-emerald-400 transition-colors flex items-center gap-1.5">
+                                Ver no GitHub
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 7. Formação Section -->
+        <section id="formacao" class="space-y-6 pt-6">
+            <h2 class="text-xs font-mono uppercase tracking-widest text-emerald-400 flex items-center gap-2">
+                <span class="w-4 h-[1px] bg-emerald-400"></span> Formação Acadêmica & Especializações
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Academic 1 -->
+                <div class="bg-slate-900/40 border border-slate-800 p-6 rounded-xl space-y-2 hover:border-slate-700 transition-colors">
+                    <span class="text-xs font-mono text-emerald-400">MBA Executivo</span>
+                    <h3 class="font-bold text-slate-100">Data Science e Analytics</h3>
+                    <p class="text-sm text-slate-400">USP / ESALQ</p>
+                    <p class="text-xs text-slate-500 pt-2 leading-relaxed">Desenvolvimento de pesquisas em governança e maturidade de dados em saúde pública.</p>
+                </div>
+
+                <!-- Academic 2 -->
+                <div class="bg-slate-900/40 border border-slate-800 p-6 rounded-xl space-y-2 hover:border-slate-700 transition-colors">
+                    <span class="text-xs font-mono text-emerald-400">Formação Executiva</span>
+                    <h3 class="font-bold text-slate-100">Escola de Governança de Dados (EGD)</h3>
+                    <p class="text-sm text-slate-400">Data Privacy Brasil — 2ª Turma (São Paulo)</p>
+                    <p class="text-xs text-slate-500 pt-2 leading-relaxed">Modelagem de governança, proteção de dados pessoais, LGPD e soberania digital.</p>
+                </div>
+
+                <!-- Academic 3 -->
+                <div class="bg-slate-900/40 border border-slate-800 p-6 rounded-xl space-y-2 hover:border-slate-700 transition-colors">
+                    <span class="text-xs font-mono text-emerald-400">Graduação</span>
+                    <h3 class="font-bold text-slate-100">Ciência de Dados</h3>
+                    <p class="text-sm text-slate-400">Formação Superior</p>
+                    <p class="text-xs text-slate-500 pt-2 leading-relaxed">Bases teóricas e práticas em programação, banco de dados e estatística computacional.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. Contato Section -->
+        <section id="contato" class="bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 rounded-2xl p-8 sm:p-12 text-center space-y-6">
+            <h2 class="text-2xl sm:text-3xl font-bold text-slate-100">Vamos conversar sobre dados, UX e governança?</h2>
+            <p class="text-slate-400 max-w-xl mx-auto text-sm sm:text-base leading-relaxed">
+                Se você atua em saúde digital, governança da informação, dados públicos ou experiência do usuário, será um prazer trocar impressões.
+            </p>
+
+            <div class="flex flex-wrap justify-center items-center gap-4 pt-4">
+                <a href="https://linkedin.com/in/daianemenezesdatascience" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-semibold transition-all flex items-center gap-2 shadow-lg shadow-emerald-500/20">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+                    Conectar no LinkedIn
+                </a>
+                <a href="https://github.com/daianedatascience" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 font-medium transition-all flex items-center gap-2">
+                    <svg class="w-4 h-4 fill-current text-slate-400" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                    GitHub @daianedatascience
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-900 mt-20 py-8 text-center text-xs text-slate-500 relative z-10">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p>© 2026 Daiane Menezes. Salvador-BA • Construído com foco em clareza & privacidade.</p>
+            <p class="font-mono text-slate-600">Data Science • UX • Governança</p>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Interactivity -->
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
